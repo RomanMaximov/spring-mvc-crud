@@ -20,7 +20,7 @@ public class UserController {
     @GetMapping()
     public String getAllUsers(Model model) {
         model.addAttribute("users", userService.getAllUsers());
-        return "index";
+        return "/index";
     }
 
     @GetMapping("/{id}")
@@ -46,7 +46,7 @@ public class UserController {
         return "edit";
     }
 
-    @PostMapping("/{id}")
+    @PatchMapping("/{id}")
     public String update(@ModelAttribute("user") User user) {
         userService.update(user);
         return "redirect:/users";
